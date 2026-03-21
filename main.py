@@ -1,4 +1,5 @@
 from database import connect_db, reset_tables, create_tables, insert_data
+from analysis import (analyze_delivery_companies,analyze_warehouses,analyze_seller_companies)
 
 
 if __name__ == "__main__":
@@ -9,13 +10,6 @@ if __name__ == "__main__":
 
     print("Database ready with sample data.")
 
-cursor = conn.cursor()
-
-cursor.execute("SELECT COUNT(*) FROM warehouses")
-print("Warehouses:", cursor.fetchone()[0])
-
-cursor.execute("SELECT COUNT(*) FROM orders")
-print("Orders:", cursor.fetchone()[0])
-
-cursor.execute("SELECT COUNT(*) FROM deliveries")
-print("Deliveries:", cursor.fetchone()[0])
+    analyze_delivery_companies(conn)
+    analyze_warehouses(conn)
+    analyze_seller_companies(conn)
