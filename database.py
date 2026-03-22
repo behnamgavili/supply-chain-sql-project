@@ -1,7 +1,5 @@
 import sqlite3
 import os
-import sqlite3
-import os
 import random
 from datetime import datetime, timedelta
 
@@ -28,7 +26,8 @@ def create_tables(conn):
         warehouse_id INTEGER PRIMARY KEY,
         warehouse_name TEXT,
         city TEXT,
-        capacity INTEGER)
+        capacity INTEGER
+    )
     """)
 
     cursor.execute("""
@@ -39,7 +38,8 @@ def create_tables(conn):
         warehouse_id INTEGER,
         seller_company TEXT,
         order_date TEXT,
-        FOREIGN KEY (warehouse_id) REFERENCES warehouses(warehouse_id))
+        FOREIGN KEY (warehouse_id) REFERENCES warehouses(warehouse_id)
+    )
     """)
 
     cursor.execute("""
@@ -50,19 +50,17 @@ def create_tables(conn):
         delivery_time INTEGER,
         delivery_cost REAL,
         delay_flag INTEGER,
-        FOREIGN KEY (order_id) REFERENCES orders(order_id))
+        FOREIGN KEY (order_id) REFERENCES orders(order_id)
+    )
     """)
 
     conn.commit()
 
 
-
 def insert_data(conn):
+    random.seed(42)
     cursor = conn.cursor()
 
-    # -------------------------
-    # 1. Insert warehouses
-    # -------------------------
     warehouses_data = [
         (1, "North Hub", "Milan", 5000),
         (2, "Central Hub", "Rome", 4000),
@@ -75,9 +73,6 @@ def insert_data(conn):
     VALUES (?, ?, ?, ?)
     """, warehouses_data)
 
-    # -------------------------
-    # 2. Insert orders
-    # -------------------------
     products = ["Laptop", "Phone", "Tablet", "Monitor", "Printer"]
     seller_companies = ["Amazon", "TechStore", "ElectroWorld", "SmartShop"]
     warehouse_ids = [1, 2, 3, 4]
@@ -115,9 +110,6 @@ def insert_data(conn):
     VALUES (?, ?, ?, ?, ?, ?)
     """, orders_data)
 
-    # -------------------------
-    # 3. Insert deliveries
-    # -------------------------
     delivery_companies = ["DHL", "UPS", "FedEx", "Maersk"]
     deliveries_data = []
 
