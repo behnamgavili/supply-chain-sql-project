@@ -1,0 +1,7 @@
+from,to,quantity,unit_cost,route_cost
+Milan,North,230.0,4,920.0
+Rome,South,350.0,4,1400.0
+Rome,East,50.0,5,250.0
+Paris,West,320.0,4,1280.0
+Berlin,North,70.0,3,210.0
+Berlin,East,350.0,4,1400.0
