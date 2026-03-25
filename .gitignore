@@ -1,0 +1,36 @@
+# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual envs
+.venv/
+env/
+venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Databases (ignore local DB files)
+*.db
+*.sqlite3
+
+# Build / packaging
+dist/
+build/
+*.egg-info/
+
+# Optional local files
+.env
+
+# Optional: uncomment to ignore generated optimization outputs if you prefer not to track them
+# transportation-optimization-project/transportation_shipments.csv
+# transportation-optimization-project/fig_shipped_by_warehouse.png
+# transportation-optimization-project/fig_route_heatmap.png
